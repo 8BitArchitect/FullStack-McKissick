@@ -55,6 +55,8 @@
       
     </div>
 
+    <p><a class="btn btn-lg btn-success" href="#" role="button" onclick="random()">Get Another Tought</a></p>
+
     <script>
         $(function() {
             console.log( "ready!" );
@@ -74,6 +76,22 @@
                 $('#main_text').html(data.url);
             });
         });
+    </script>
+    <script>
+        function random() {
+            console.log( "ready!" );
+            $.get( "http://localhost:5050/get_image", function( data ) {
+            
+                console.log(data.url)
+                $('#main_image').css('background-image','url('+data.url+')');
+            });
+            console.log( "ready!" );
+            $.get( "http://localhost:5050/get_quote", function( data ) {
+            
+                console.log(data.url)
+                $('#main_text').html(data.url);
+            });
+        }
     </script>
   </body>
 </html>
