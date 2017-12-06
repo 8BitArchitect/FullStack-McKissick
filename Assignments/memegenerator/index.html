@@ -236,7 +236,7 @@
                     "data": data,
                     "async": true,
                     "crossDomain": false,
-                    "url": "http://0.0.0.0:5050/meme_generator/v1.0/generate_image",
+                    "url": "http://104.236.61.204:5050/meme_generator/v1.0/generate_image",
                     "method": "POST",
                     "headers": {
                         "cache-control": "no-cache"
@@ -275,7 +275,7 @@
                 first = $('#first').val()
                 last = $('#last').val()
 
-                url = "http://0.0.0.0:5050/user/new"
+                url = "http://104.236.61.204:5050/user/new"
 
                 data = {
                     "email": email,
@@ -304,7 +304,7 @@
 
                 console.log(url);
                 console.log(name);
-                url = "http://0.0.0.0:5050/meme_generator/v1.0/grab_image?url=" + url + "&" + "fname=" + name
+                url = "http://104.236.61.204:5050/meme_generator/v1.0/grab_image?url=" + url + "&" + "fname=" + name
 
 
                 function image_success(response) {
