@@ -9,8 +9,8 @@ import time
 import hashlib
 from meme import create_meme
 
-BLANKDIR = '/var/www/html/memes_blank'
-MEMEDIR = '/var/www/html/memes'
+BLANKDIR = './memes_blank'
+MEMEDIR = './memes'
 
 # Create a link to our mongo database
 client = MongoClient()
