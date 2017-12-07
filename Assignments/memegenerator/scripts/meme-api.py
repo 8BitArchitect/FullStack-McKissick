@@ -299,7 +299,7 @@ def meme(action):
         data = request.json
         item = {}
         
-        # item["_id"] = 4 # selected by die roll, guaranteed to be perfectly random
+        item["_id"] = client['memes_db']['memes'].find().count() + 1
         for key in data:
             print(key, type(data[key]))
             item[key] = data[key]
