@@ -203,36 +203,6 @@ class MyAPI extends API
         }
     }
 
-
-    
-    /**
-     *add_user: adds a new user(s) to the collection
-     */
-    protected function add_user()
-    {
-
-    }
-
-    /**
-     *update_user: updates a user(s) in the collection
-     */
-    protected function update_user()
-    {
-    }
-
-    /**
-     *delete_user: removes a user(s) from the collection
-     */
-    protected function delete_user()
-    {
-        $remstuff = [];
-        foreach($this->request as $key => $val){
-            $remstuff[$key] = this->celanentry($val);
-        }
-        return $this->mh->delete($remstuff);
-    }
-
-
     /**
      *find_user: finds a user(s) from the collection
      */
