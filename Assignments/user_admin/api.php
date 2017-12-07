@@ -208,7 +208,6 @@ class MyAPI extends API
      */
     protected function find_user()
     {
-        
         $newstuff = [];
         foreach($this->request as $key => $val){
             $newstuff[$key] = $this->clean_entry($val);
