@@ -57,7 +57,7 @@
 
         function delete_users() {
             $.ajax({
-                url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/user/",
+                url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/",
                 type: 'DELETE',
                 success: function(data) {
                     console.log(data);
@@ -70,7 +70,7 @@
 
         function get_users() {
             $.ajax({
-                url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/user/",
+                url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/random_user/",
                 type: 'GET',
                 success: function(data) {
                     load_data_tables(data);

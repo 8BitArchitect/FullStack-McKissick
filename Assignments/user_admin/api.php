@@ -210,6 +210,7 @@ class MyAPI extends API
      */
     protected function add_user()
     {
+
     }
 
     /**
@@ -224,6 +225,11 @@ class MyAPI extends API
      */
     protected function delete_user()
     {
+        $remstuff = [];
+        foreach($this->request as $key => $val){
+            $remstuff[$key] = this->celanentry($val);
+        }
+        return $this->mh->delete($remstuff);
     }
 
 
