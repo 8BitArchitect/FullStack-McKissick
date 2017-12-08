@@ -60,7 +60,7 @@ abstract class API
         
         $this->logger->do_log($this->args);
         
-        while ($this->args[0] == '' || $this->args[0] == 'FullStack-McKissick' $this->args[0] =='Assignments' 'user_admin' || $this->args[0] == 'api.php') {
+        while ($this->args[0] == '' || $this->args[0] == 'FullStack-McKissick' || $this->args[0] =='Assignments' || $this->args[0] =='user_admin' || $this->args[0] == 'api.php') {
             array_shift($this->args);
         }
         
