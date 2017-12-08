@@ -203,11 +203,36 @@ class MyAPI extends API
         }
     }
 
+
+    
+    /**
+     *add_user: adds a new user(s) to the collection
+     */
+    protected function add_user()
+    {
+    }
+
+    /**
+     *update_user: updates a user(s) in the collection
+     */
+    protected function update_user()
+    {
+    }
+
+    /**
+     *delete_user: removes a user(s) from the collection
+     */
+    protected function delete_user()
+    {
+    }
+
+
     /**
      *find_user: finds a user(s) from the collection
      */
     protected function find_user()
     {
+        
         $newstuff = [];
         foreach($this->request as $key => $val){
             $newstuff[$key] = $this->clean_entry($val);
@@ -260,94 +285,6 @@ class MyAPI extends API
         }
     }
 
-    /**
-     *  @name: add_user
-     *  @description: adds a new user(s) to the collection
-     *  @type: POST
-     *
-     *  The posted data will be an json array of 1 - N new users.
-     *  Example:
-     *  { 
-     *     TBD in class
-     *  }
-     */
-    protected function add_user()
-    {
-        $this->mh->setDbcoll('users');
-        $result = $this->mh->insert([$this->request]);
-        return $result;
-    }
-
-    /**
-     *  @name: update_user
-     *  @description: updates existing user with new info.
-     *  @type: PUT
-     *
-     *  The posted data will be an json array of 1 - N arrays of key value pairs.
-     *  E.g.  
-     *  Example:
-     *  { 
-     *     TBD in class
-     *  }
-     */
-    protected function update_user()
-    {
-        $this->mh->setDbcoll('users');
-        if (array_key_exists('data', $this->request)) {
-            if (is_array($this->request['data'])) {
-                $this->request = $this->request['data'];
-                //had issues with "posting" so I'm debugging here
-                if (!$this->has_string_keys($this->request)) {
-                    $this->logger->do_log(sizeof($this->request), "regular array");
-                    $this->request = $this->addPrimaryKey($this->request, $this->primary_key);
-                    $result = $this->mh->insert($this->request);
-                } else {
-                    $this->logger->do_log(sizeof($this->request), "assoc array");
-                    $result = $this->mh->insert([$this->request]);
-                }
-            }
-        }
-        return $result;
-    }
-
-    /**
-     *  @name: delete_user
-     *  @description: deletes a user(s) from the collection
-     *  @type: DELETE
-     *  E.g.  
-     *  Example:
-     *  { 
-     *     TBD in class
-     *  }
-     */
-    protected function delete_user()
-    {
-        $this->mh->setDbcoll('users');
-        if (count($this->request) > 0) {
-            $result = $this->mh->delete([$this->request]);
-        } else {
-            $result = $this->mh->delete();
-        }
-        return $result;
-    }
-    
-    /**
-     *  @name: random_user:
-     *  @description: retreives a random user(s) from the randomuser api
-     *  @type: GET
-     *  This will also filter the data so that only the values we need are in the collection, and all top level keys with no nesting.
-     *  E.g.  
-     *  Example:
-     *  { 
-     *     TBD in class
-     *  }
-     */
-    protected function random_user()
-    {
-        $this->mh->setDbcoll('users');
-        $users = $this->mh->query($this->request);
-        return $users;
-    }    
 
     private function addPrimaryKey($data, $coll, $key)
     {
