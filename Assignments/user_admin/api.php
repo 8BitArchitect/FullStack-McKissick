@@ -210,6 +210,9 @@ class MyAPI extends API
      */
     protected function add_user()
     {
+        $this->mh->setDbcoll('users');
+        $result = $this->mh->insert([$this->request]);
+        return $result;
     }
 
     /**
@@ -217,6 +220,20 @@ class MyAPI extends API
      */
     protected function update_user()
     {
+        $this->mh->setDbcoll('users');
+        if (is_array($this->request['data'])) {
+            $this->request = $this->request['data'];
+            //had issues with "posting" so I'm debugging here
+            if (!$this->has_string_keys($this->request)) {
+                $this->logger->do_log(sizeof($this->request), "regular array");
+                $this->request = $this->addPrimaryKey($this->request, $this->primary_key);
+                $result = $this->mh->insert($this->request);
+            } else {
+                $this->logger->do_log(sizeof($this->request), "assoc array");
+                $result = $this->mh->insert([$this->request]);
+            }
+        }
+        return $result;
     }
 
     /**
@@ -224,6 +241,13 @@ class MyAPI extends API
      */
     protected function delete_user()
     {
+        $this->mh->setDbcoll('users');
+        if (count($this->request) > 0) {
+            $result = $this->mh->delete([$this->request]);
+        } else {
+            $result = $this->mh->delete();
+        }
+        return $result;
     }
 
 
@@ -232,7 +256,7 @@ class MyAPI extends API
      */
     protected function find_user()
     {
-        
+        $this->mh->setDbcoll('users');
         $newstuff = [];
         foreach($this->request as $key => $val){
             $newstuff[$key] = $this->clean_entry($val);
