@@ -46,6 +46,66 @@
             </tfoot>
         </table>
     </div>
+
+    <!-- Modal Edit User Form-->
+
+    <div class="container">
+        <!-- Edit User Modal -->
+        <div class="modal fade user-edit-form" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="edit-form" class="tab-pane fade">
+                            <form action="/">
+                                <div class="form-group">
+                                    <label for="first">First Name:</label>
+                                    <input type="text" class="form-control" id="first" placeholder="Enter first name" name="first">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last">Last Name:</label>
+                                    <input type="text" class="form-control" id="last" placeholder="Enter last name" name="last">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone Number:</label>
+                                    <input type="text" class="form-control" id="phone" placeholder="Enter first name" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nat">Country:</label>
+                                    <input type="text" class="form-control" id="nat" placeholder="Enter last name" name="nat">
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City:</label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter first name" name="city">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dob">Date of Birth:</label>
+                                    <input type="text" class="form-control" id="dob" placeholder="Enter last name" name="dob">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newemail">Email:</label>
+                                    <input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="newemail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username:</label>
+                                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newpwd">Password:</label>
+                                    <input type="password" class="form-control" id="newpwd" placeholder="New password" name="newpwd">
+                                </div>
+                                <button id="submit-changes" type="submit" class="btn btn-default">Confirm Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -95,7 +155,7 @@
                     data[i].email,
                     data[i].username,
                     data[i].password,
-                    '<button class="fa fa-pencil-square-o edit_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i> <button class="fa fa-trash delete_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i>'
+                    '<a class="nav-link fa fa-pencil-square-o edit_user" ref="#edit" data-toggle="modal" data-target=".user-edit-form" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i> <i class="fa fa-trash delete_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i>'
                 ];
                 newobj["data"].push(temp);
             }
@@ -123,23 +183,11 @@
         }
 
         function add_admin_events() {
-            $('.delete_user')
-                .click(function() {
-                    var $this = $(this);
-                    console.log($this);
-                    console.log($this.data());
-                })
-                .mouseover(function() {
-                    var $this = $(this);
-                    console.log("Mouseover")
-                    console.log($this)
-                })
-                .mouseout(function() {
-                    var $this = $(this);
-                    console.log("Mouseout")
-                    console.log($this)
-                })
-                ;
+            $('.delete_user').click(function() {
+                var $this = $(this);
+                console.log($this);
+                console.log($this.data());
+            });
             $('.edit_user').click(function() {
                 var $this = $(this);
                 console.log($this);
