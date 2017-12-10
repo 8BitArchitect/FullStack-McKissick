@@ -95,7 +95,7 @@
                     data[i].email,
                     data[i].username,
                     data[i].password,
-                    '<i class="fa fa-pencil-square-o edit_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i> <i class="fa fa-trash delete_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i>'
+                    '<button class="fa fa-pencil-square-o edit_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i> <button class="fa fa-trash delete_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i>'
                 ];
                 newobj["data"].push(temp);
             }
@@ -123,12 +123,24 @@
         }
 
         function add_admin_events() {
-            $('#delete_user').click(function() {
-                var $this = $(this);
-                console.log($this);
-                console.log($this.data());
-            });
-            $('#edit_user').click(function() {
+            $('.delete_user')
+                .click(function() {
+                    var $this = $(this);
+                    console.log($this);
+                    console.log($this.data());
+                })
+                .mouseover(function() {
+                    var $this = $(this);
+                    console.log("Mouseover")
+                    console.log($this)
+                })
+                .mouseout(function() {
+                    var $this = $(this);
+                    console.log("Mouseout")
+                    console.log($this)
+                })
+                ;
+            $('.edit_user').click(function() {
                 var $this = $(this);
                 console.log($this);
                 console.log($this.data());
