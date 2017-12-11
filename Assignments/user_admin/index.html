@@ -149,6 +149,7 @@
             console.log(JSON.stringify(newobj));
 
             var table = $('#example').DataTable({
+                "bJQueryUI": true,
                 "data": newobj.data,
                 "initComplete": function(settings, json) {
                     console.log('DataTables has finished its initialisation.');
