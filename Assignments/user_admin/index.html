@@ -156,6 +156,21 @@
                     $('#example tbody').on('click', 'tr', function() {
                         //console.log(table.row(this).data());
                         console.log(table.row(this).column(this).nodes())
+
+                        var targetUrl = $(this).attr("href");
+
+                        $('#table-dialog').dialog({
+                        buttons: {
+                            "Delete": function() {
+                                window.location.href = targetUrl;
+                            },
+                            "Cancel": function() {
+                                $(this).dialog("close");
+                    }
+                  }
+                });                 
+                //simple dialog example here
+                $('#table-dialog').text(dialogText ).dialog("open");
                     });
 
                 }
