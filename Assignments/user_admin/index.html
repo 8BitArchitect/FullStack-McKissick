@@ -97,7 +97,7 @@
 
     <div class="container">
         <!-- Edit User Modal -->
-        <div class="modal fade user-edit-form" role="dialog">
+        <div id="user-edit-form" class="modal fade" role="dialog">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -202,7 +202,7 @@
                     data[i].email,
                     data[i].username,
                     data[i].password,
-                    '<a class="nav-link fa fa-pencil-square-o edit_user" ref="#edit" data-toggle="modal" data-target=".user-edit-form" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i> <i class="fa fa-trash delete_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i>'
+                    '<a class="nav-link fa fa-pencil-square-o edit_user" ref="#edit" data-toggle="modal" data-target="#user-edit-form" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i> <i class="fa fa-trash delete_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></i>'
                 ];
                 newobj["data"].push(temp);
             }
