@@ -157,8 +157,8 @@
                     console.log('DataTables has finished its initialisation.');
                     add_admin_events();
                     $('#example tbody').on('click', 'tr', function() {
-                        $(this).toggleClass('selected');
                         console.log(table.row(this).data());
+                        console.log(table.row(this).column(this))
 
                     });
 
@@ -174,21 +174,9 @@
 
         function add_admin_events() {
             $('.delete_user').click(function() {
-                $("body").on("click", ".delete_modal", function (e) {
-                    e.preventDefault();
-                            var targetUrl = $(this).attr("href");
-                            $('#delete-dialog').dialog({
-                              buttons: {
-                                "Delete": function() {
-                                  window.location.href = targetUrl;
-                                },
-                                "Cancel": function() {
-                                  $(this).dialog("close");
-                                }
-                              }
-                            });
-                            $('#delete-dialog').dialog("open");
-                    });
+                var $this = $(this);
+                console.log($this);
+                console.log($this.data());
             });
             $('.edit_user').click(function() {
                 var $this = $(this);
