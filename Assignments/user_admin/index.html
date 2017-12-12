@@ -179,7 +179,8 @@
                 } ]
             });
             $('#example tbody').on( 'click', 'button', function () {
-                console.log(data[9]);   
+                var _id = table.row( $(this).parents('tr') ).data();
+                console.log(_id);   
             } );
         }
 
