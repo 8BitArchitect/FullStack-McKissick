@@ -150,11 +150,34 @@
                 ]
             } );
         } ); */
+        function register_success(response) {
+				console.log(response);
+				location.reload();
+			}
+		function register_failure(response) {
+			console.log(response);
+		}
+
+        function my_request(method, url, data, successHandler, failureHandler) {
+			var jqxhr = $.ajax({
+				"async": true,
+				"crossDomain": true,
+				"url": url,
+				"type": method,
+				"data": data,
+				"success": function(data)
+				{
+					console.log(data + " got sent");
+				}
+			});
+			jqxhr.done(successHandler);
+			jqxhr.fail(failureHandler);
+		}
 
         function delete_users(data) {
             $.ajax({
-                url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/",
-                type: 'POST',
+                url: 
+                type: 'POST',"http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/",
                 success: function(data) {
                     console.log(data);
                     load_data_tables(data);
@@ -210,9 +233,15 @@
             $('#example tbody').on( 'click', 'button', function () {
                 var _id = table.row( $(this).parents('td') ).data()[9];
                 var _action = $(this)["context"]["classList"][2]; // this is probably a horrible hack and I feel bad.
+                var url = "";
+                var req_type = "";
+                var data = {};
                 if(_action == "delete_user") {
-                    delete_users({"_id":_id})
+                    var url = "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/";
+                    var req_type = "POST";
+                    var data = {"_id":_id};
                 }
+                myrequest(req_type, url, data, register_success, register_failure);
                 console.log(_id);   
             } );
         }
