@@ -58,15 +58,19 @@
     </style>-->
     <style type="text/css">
         .edit_user {
+          background-color: #bbb;
           padding: .5em;
-          color: #bbb;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 6px;
+          color: #fff;
           text-decoration: none;
           border: none;
         }
         
         .edit_user:hover {
           border: none;
-          color: orange;
+          background: orange;
           box-shadow: 0px 0px 1px #777;
         }
     </style>
@@ -189,10 +193,10 @@
                 "columnDefs": [ {
                     "targets": -1,
                     "data": null,
-                    "defaultContent": "<i class=\"fa fa-pencil-square-o edit_user\" aria-hidden=\"true\" data-id=\"' + data[i]['_id'] + '\"></i>"
+                    "defaultContent": "<button class=\"fa fa-pencil-square-o edit_user\" aria-hidden=\"true\" data-id=\"' + data[i]['_id'] + '\"></button>"
                 } ]
             });
-            $('#example tbody').on( 'click', 'i', function () {
+            $('#example tbody').on( 'click', 'button', function () {
                 var _id = table.row( $(this).parents('td') ).data();
                 console.log(_id);   
             } );
