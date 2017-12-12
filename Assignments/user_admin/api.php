@@ -223,6 +223,7 @@ class MyAPI extends API
         $this->mh->setDbcoll('users');
         if (is_array($this->request['data'])) {
             $this->request = $this->request['data'];
+            $this->request['_id'] = (int)$this->request['_id'];
             //had issues with "posting" so I'm debugging here
             if (!$this->has_string_keys($this->request)) {
                 $this->logger->do_log(sizeof($this->request), "regular array");
@@ -243,6 +244,7 @@ class MyAPI extends API
     {
         $this->mh->setDbcoll('users');
         if (count($this->request) > 0) {
+            $this->request['_id'] = (int)$this->request['_id'];
             $result = $this->mh->delete([$this->request]);
         } else {
             $result = $this->mh->delete();
