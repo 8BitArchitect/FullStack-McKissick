@@ -103,9 +103,9 @@
         //data.DT_RowId gives the required ID.
         $(document).ready(function() {
             $('#example').DataTable( {
-                "processing": true,
                 "ajax": {
                     "url": "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/find_user",
+                    "type": "GET",
                     "dataSrc": ""
                 },
                 "columns": [
