@@ -237,9 +237,9 @@
                 var req_type = "";
                 var data = {};
                 if(_action == "delete_user") {
-                    var url = "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/";
-                    var req_type = "POST";
-                    var data = {"_id":_id};
+                    url = "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/";
+                    req_type = "POST";
+                    data = {"_id":_id};
                 }
                 my_request(req_type, url, data, register_success, register_failure);
                 console.log(_id);   
