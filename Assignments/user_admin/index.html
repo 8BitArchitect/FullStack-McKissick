@@ -241,6 +241,7 @@
                     req_type = "POST";
                     data = {"_id":_id};
                 }
+                console.log(url, req_type, data);
                 my_request(req_type, url, data, register_success, register_failure);
                 console.log(_id);   
             } );
