@@ -210,7 +210,10 @@
             });
             $('#example tbody').on( 'click', 'button', function () {
                 var _id = table.row( $(this).parents('td') ).data();
-                var _action = $(this)["context"]["classList"][2];
+                var _action = $(this)["context"]["classList"][2]; // this is probably a horrible hack and I feel bad.
+                if(_action = "delete_user") {
+                    delete_users([{"_id":_id}])
+                }
                 console.log(_action);   
             } );
         }
