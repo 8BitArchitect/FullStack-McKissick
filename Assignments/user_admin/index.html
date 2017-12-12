@@ -170,7 +170,7 @@
                 "data": newobj.data,
                 "initComplete": function(settings, json) {
                     console.log('DataTables has finished its initialisation.');
-                    add_admin_events();
+                    //add_admin_events();
                     $('#example tbody').on('click', 'tr', function() {
                         $(this).toggleClass('selected');
                         console.log(table.row(this).data());
@@ -183,7 +183,7 @@
                 } ]
             });
             $('#example tbody').on( 'click', 'button', function () {
-                console.log(data[9]);
+                console.log(data[9]);   
                 delete_users({"_id":data[9]});
             } );
         }
