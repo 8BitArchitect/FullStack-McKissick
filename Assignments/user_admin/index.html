@@ -101,13 +101,13 @@
         //table.draw();
         //var data = table.rows( { selected: true } ).data()[0];
         //data.DT_RowId gives the required ID.
-        /* $( document ).ready(function() {
-            $('#table-dialog').dialog({
-                autoOpen: false,
-                width: 200,
-                modal: true,
-            });
-        }); */ 
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "processing": true,
+                "serverSide": true,
+                "ajax": "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/find_user/"
+            } );
+        } );
 
         function delete_users() {
             $.ajax({
@@ -210,7 +210,7 @@
             });
         }
 
-        get_users();
+        //get_users();
     </script>
 </body>
 
