@@ -154,7 +154,7 @@
         function delete_users() {
             $.ajax({
                 url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/",
-                type: 'DELETE',
+                type: 'POST',
                 success: function(data) {
                     console.log(data);
                     load_data_tables(data);
