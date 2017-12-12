@@ -261,8 +261,8 @@ class MyAPI extends API
         foreach($this->request as $key => $val){
             $newstuff[$key] = $this->clean_entry($val);
         }
-        Echo json_encode($this->mh->query($newstuff));
-        return;
+        //Echo json_encode($this->mh->query($newstuff));
+        return $this->mh->query($newstuff);
         //return ["request"=>$newstuff,"method"=>$this->method];
     }
 
