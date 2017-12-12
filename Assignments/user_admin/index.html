@@ -239,7 +239,7 @@
                 if(_action == "delete_user") {
                     url = "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/";
                     req_type = "POST";
-                    data = jsonify({"_id":_id});
+                    data = {"_id":_id};
                 }
                 console.log(url, req_type, data);
                 my_request(req_type, url, data, register_success, register_failure);
