@@ -72,7 +72,7 @@
                     <th>Email</th>
                     <th>Username</th>
                     <th>Password</th>
-                    <!---<th>Admin</th>-->
+                    <th>Admin</th>
                 </tr>
             </thead>
 
@@ -87,7 +87,7 @@
                     <th>Email</th>
                     <th>Username</th>
                     <th>Password</th>
-                    <!---<th>Admin</th>-->
+                    <th>Admin</th>
                 </tr>
             </tfoot>
         </table>
@@ -101,7 +101,7 @@
         //table.draw();
         //var data = table.rows( { selected: true } ).data()[0];
         //data.DT_RowId gives the required ID.
-        $(document).ready(function() {
+        /* $(document).ready(function() {
             $('#example').DataTable( {
                 ajax: {
                     url: "./api.php/find_user/",
@@ -117,16 +117,11 @@
                     { data: "email" },
                     { data: "username" },
                     { data: "password" }
-                ],
-                success: function(data) {
-                    console.log(data);
-                    html = '<div>' + data + '</div>';
-                    $('body').append(html);
-                },
+                ]
             } );
-        } );
+        } ); */
 
-        /* function delete_users() {
+        function delete_users() {
             $.ajax({
                 url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/",
                 type: 'DELETE',
@@ -166,55 +161,34 @@
                     data[i].email,
                     data[i].username,
                     data[i].password,
-                    '<button type="button" class="fa fa-pencil-square-o edit_user" ref="#edit" data-toggle="modal" data-target="#user-edit-form" aria-hidden="true" data-id="' + data[i]['_id'] + '"></button> <button type="button" class="fa fa-trash delete_user" aria-hidden="true" data-id="' + data[i]['_id'] + '"></button>'
+                    data[i]._id
                 ];
                 newobj["data"].push(temp);
             }
             console.log(JSON.stringify(newobj));
-
             var table = $('#example').DataTable({
-                ajax: {
-                    url: 'http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/find_user/',
-                    type: 'GET',
-                    dataSrc: "",
-                },
-                data: [],
-                "columns": [
-                    { "data": "first" },
-                    { "data": "last" },
-                    { "data": "phone" },
-                    { "data": "city" },
-                    { "data": "dob" },
-                    { "data": "email" },
-                    { "data": "username" },
-                    { "data": "password" },
-                ],
-                "bJQueryUI": true,
+                "data": newobj.data,
                 "initComplete": function(settings, json) {
                     console.log('DataTables has finished its initialisation.');
                     add_admin_events();
                     $('#example tbody').on('click', 'tr', function() {
-                        //console.log(table.row(this).data());
-                        console.log(table.row(this).column(this).nodes())
-                    ]
-                    }); // marker
-
-                }
-                buttons: [
-                    { extend: "create", editor: editor },
-                    { extend: "edit",   editor: editor },
-                    { extend: "remove", editor: editor }
-                ]
+                        $(this).toggleClass('selected');
+                        console.log(table.row(this).data());
+                    });
+                },
+                "columnDefs": [ {
+                    "targets": -1,
+                    "data": null,
+                    "defaultContent": "<button class=\"fa fa-pencil-square-o edit_user\" aria-hidden=\"true\" data-id=\"' + data[i]['_id'] + '\"></button>"
+                } ]
             });
-
-            table.on('draw', function() {
-                console.log('Table redrawn');
-                add_admin_events();
-            });
-
+            $('#example tbody').on( 'click', 'button', function () {
+                console.log(data[9]);
+                delete_users({"_id":data[9]});
+            } );
         }
 
-        function add_admin_events() {
+        /* function add_admin_events() {
             $('.delete_user').click(function() {
                 var $this = $(this);
                 console.log($this);
@@ -227,7 +201,7 @@
             });
         } */
 
-        //get_users();
+        get_users();
     </script>
 </body>
 
