@@ -118,7 +118,12 @@
                     { "data": "email" },
                     { "data": "username" },
                     { "data": "password" }
-                ]
+                ],
+                "success": function(data) {
+                    console.log(data);
+                    html = '<div>' + data + '</div>';
+                    $('body').append(html);
+                },
             } );
         } );
 
