@@ -157,8 +157,7 @@
                 type: 'DELETE',
                 success: function(data) {
                     console.log(data);
-                    html = '<div>' + data + '</div>';
-                    $('body').append(html);
+                    load_data_tables(data);
                 },
                 data: []
             });
