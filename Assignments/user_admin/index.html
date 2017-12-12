@@ -104,6 +104,7 @@
         $(document).ready(function() {
             $('#example').DataTable( {
                 "ajax": "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/find_user/",
+                dataSrc: '',
                 "columns": [
                     { "data": "first" },
                     { "data": "last" },
@@ -118,7 +119,7 @@
             } );
         } );
 
-        function delete_users() {
+        /* function delete_users() {
             $.ajax({
                 url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/delete_user/",
                 type: 'DELETE',
@@ -185,18 +186,18 @@
                 "initComplete": function(settings, json) {
                     console.log('DataTables has finished its initialisation.');
                     add_admin_events();
-                    /* $('#example tbody').on('click', 'tr', function() {
+                    $('#example tbody').on('click', 'tr', function() {
                         //console.log(table.row(this).data());
                         console.log(table.row(this).column(this).nodes())
                     ]
-                    }); // marker */
+                    }); // marker
 
                 }
-                /* buttons: [
+                buttons: [
                     { extend: "create", editor: editor },
                     { extend: "edit",   editor: editor },
                     { extend: "remove", editor: editor }
-                ] */
+                ]
             });
 
             table.on('draw', function() {
@@ -217,7 +218,7 @@
                 console.log($this);
                 console.log($this.data());
             });
-        }
+        } */
 
         //get_users();
     </script>
