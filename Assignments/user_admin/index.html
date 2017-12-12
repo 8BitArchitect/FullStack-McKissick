@@ -134,7 +134,7 @@
         }
 
         function load_data_tables(data) {
-            var filtered = [];
+            /* var filtered = [];
             var newobj = {
                 "data": []
             };
@@ -153,33 +153,40 @@
                 ];
                 newobj["data"].push(temp);
             }
-            console.log(JSON.stringify(newobj));
+            console.log(JSON.stringify(newobj)); */
 
             var table = $('#example').DataTable({
+                ajax: {
+                    url: 'http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/find_user/',
+                    type: 'GET',
+                    dataSrc: "",
+                },
                 "bJQueryUI": true,
-                "data": newobj.data,
+                "columns": [
+                    { "data": "first" },
+                    { "data": "last" },
+                    { "data": "phone" },
+                    { "data": "location" },
+                    { "data": "dob" },
+                    { "data": "email" },
+                    { "data": "username" },
+                    { "data": "password" },
+                ],
                 "initComplete": function(settings, json) {
                     console.log('DataTables has finished its initialisation.');
                     add_admin_events();
-                    $('#example tbody').on('click', 'tr', function() {
+                    /* $('#example tbody').on('click', 'tr', function() {
                         //console.log(table.row(this).data());
                         console.log(table.row(this).column(this).nodes())
-
-                        $('#table-dialog').dialog({
-                        buttons: {
-                            "Delete": function() {
-                                window.location.href = targetUrl;
-                            },
-                            "Cancel": function() {
-                                $(this).dialog("close");
-                            }
-                        }
-                        });                 
-                        //simple dialog example here
-                        $('#table-dialog').text("Dummy Text").dialog("open"); 
-                    }); // marker
+                    ]
+                    }); // marker */
 
                 }
+                /* buttons: [
+                    { extend: "create", editor: editor },
+                    { extend: "edit",   editor: editor },
+                    { extend: "remove", editor: editor }
+                ] */
             });
 
             table.on('draw', function() {
@@ -202,7 +209,7 @@
             });
         }
 
-        get_users();
+        //get_users();
     </script>
 </body>
 
