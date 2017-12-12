@@ -196,8 +196,13 @@
                     "defaultContent": "<button class=\"fa fa-pencil-square-o edit_user\" aria-hidden=\"true\" data-id=\"' + data[i]['_id'] + '\"></button>"
                 } ]
             });
-            $('#example tbody').on( 'click', 'button', function () {
-                var _id = table.row( $(this).parents('tr') ).data()[9];
+            /* $('#example tbody').on( 'click', 'button', function () {
+                var _id = table.row( $(this).parents('td') ).data();
+                var _class = $this.class()
+                console.log(_id);   
+            } ); */
+            $('.edit_user button').on( 'click', function () {
+                var _id = table.row( $(this).parents('td') ).data();
                 console.log(_id);   
             } );
         }
