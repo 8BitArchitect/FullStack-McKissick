@@ -104,19 +104,19 @@
         $(document).ready(function() {
             $('#example').DataTable( {
                 ajax: {
-                    url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/find_user/",
-                    dataSrc: ''
+                    url: "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/find_user",
+                    dataSrc: ""
                 },
                 columns: [
-                    { "data": "first" },
-                    { "data": "last" },
-                    { "data": "phone" },
-                    { "data": "nat"},
-                    { "data": "city" },
-                    { "data": "dob" },
-                    { "data": "email" },
-                    { "data": "username" },
-                    { "data": "password" }
+                    { data: "first" },
+                    { data: "last" },
+                    { data: "phone" },
+                    { data: "nat"},
+                    { data: "city" },
+                    { data: "dob" },
+                    { data: "email" },
+                    { data: "username" },
+                    { data: "password" }
                 ]
             } );
         } );
