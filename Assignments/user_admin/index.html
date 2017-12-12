@@ -103,19 +103,7 @@
         //data.DT_RowId gives the required ID.
         $(document).ready(function() {
             $('#example').DataTable( {
-                "processing": true,
-                "serverSide": true,
-                "ajax": "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/find_user/",
-                "columns": [
-                    { "data": "first" },
-                    { "data": "last" },
-                    { "data": "phone" },
-                    { "data": "city" },
-                    { "data": "dob" },
-                    { "data": "email" },
-                    { "data": "username" },
-                    { "data": "password" },
-                ]
+                "ajax": "http://104.236.61.204/FullStack-McKissick/Assignments/user_admin/api.php/find_user/"
             } );
         } );
 
