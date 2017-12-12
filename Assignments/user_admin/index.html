@@ -161,17 +161,18 @@
                     type: 'GET',
                     dataSrc: "",
                 },
-                "bJQueryUI": true,
+                data: [],
                 "columns": [
                     { "data": "first" },
                     { "data": "last" },
                     { "data": "phone" },
-                    { "data": "location" },
+                    { "data": "city" },
                     { "data": "dob" },
                     { "data": "email" },
                     { "data": "username" },
                     { "data": "password" },
                 ],
+                "bJQueryUI": true,
                 "initComplete": function(settings, json) {
                     console.log('DataTables has finished its initialisation.');
                     add_admin_events();
