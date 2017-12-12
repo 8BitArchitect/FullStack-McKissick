@@ -60,7 +60,7 @@
     <script>
         $(function() {
             console.log( "ready!" );
-            $.get( "http://localhost:5050/get_image", function( data ) {
+            $.get( "http://104.236.61.204:5050/get_image", function( data ) {
             
                 console.log(data.url)
                 $('#main_image').css('background-image','url('+data.url+')');
@@ -70,7 +70,7 @@
     <script>
         $(function() {
             console.log( "ready!" );
-            $.get( "http://localhost:5050/get_quote", function( data ) {
+            $.get( "http://104.236.61.204:5050/get_quote", function( data ) {
             
                 console.log(data.url)
                 $('#main_text').html(data.url);
@@ -80,13 +80,13 @@
     <script>
         function random() {
             console.log( "ready!" );
-            $.get( "http://localhost:5050/get_image", function( data ) {
+            $.get( "http://104.236.61.204:5050/get_image", function( data ) {
             
                 console.log(data.url)
                 $('#main_image').css('background-image','url('+data.url+')');
             });
             console.log( "ready!" );
-            $.get( "http://localhost:5050/get_quote", function( data ) {
+            $.get( "http://104.236.61.204:5050/get_quote", function( data ) {
             
                 console.log(data.url)
                 $('#main_text').html(data.url);
