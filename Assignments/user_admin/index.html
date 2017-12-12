@@ -89,6 +89,78 @@
 </head>
 
 <body>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".add-user-form">Add User</button>
+
+            <!-- Modal Add User form -->
+
+    <div class="container">
+        <div class="row">
+
+            <!-- Add User Modal-->
+            <div class="modal fade add-user-form" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add User</h4>
+                        </div>
+                        <div class="modal-body.0">
+                                
+                            <form action="/" onsubmit="event.preventDefault();">
+                                <div class="form-group">
+                                    <label for="first_name">First Name:</label>
+                                    <input type="text" class="form-control" id="first_name" placeholder="Enter your first name" name="first">
+                                </div>
+                                <div class="form-group">
+                                    <label for="last_name">Last Name:</label>
+                                    <input type="text" class="form-control" id="last_name" placeholder="Enter your last name" name="last">
+                                </div>
+                                    <div class="form-group">
+                                    <label for="newphone">Phone:</label>
+                                    <input type="text" class="form-control" id="newphone" placeholder="Enter phone number" name="phone">
+                                </div>
+                                    <div class="form-group">
+                                    <label for="newnationality">Nationality:</label>
+                                    <input type="text" class="form-control" id="newnationality" placeholder="Enter nationality" name="nationality">
+                                </div>
+                                    <div class="form-group">
+                                    <label for="newlocation">Location:</label>
+                                    <input type="text" class="form-control" id="newlocation" placeholder="Enter location" name="location">
+                                </div>
+                                    <div class="form-group">
+                                    <label for="newdob">DOB:</label>
+                                    <input type="text" class="form-control" id="newdob" placeholder="Enter DOB" name="dob">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newemail">Email:</label>
+                                    <input type="email" class="form-control" id="newemail" placeholder="Enter new email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newuser">Username:</label>
+                                    <input type="text" class="form-control" id="newuser" placeholder="New Username" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newpwd">Password:</label>
+                                    <input type="password" class="form-control" id="newpwd" placeholder="New password" name="password">
+                                </div>
+                                
+                                <!--<button type="submit" id="edit-user" class="btn btn-default">Edit User</button> -->
+
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" id="add-user" class="btn btn-default">Add User</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                        <!--                                    <div class="modal-footer">-->
+                        <!--                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                        <!--                                    </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade edit-user-form" role="dialog">
         <div class="modal-dialog">
     
