@@ -8,7 +8,7 @@
 
     <title>Api Test</title>
     <!-- Bootstrap core CSS -->
-    <!--<link href="./css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <link rel="icon" href="images/favicon.png">
@@ -122,9 +122,66 @@
             </tfoot>
         </table>
     </div>
+    <div class="modal fade edit-user-form" role="dialog">
+        <div class="modal-dialog">
+  
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit User</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="/" onsubmit="event.preventDefault();">
+                        <div class="form-group">
+                            <label for="efirst_name">First Name:</label>
+                            <input type="text" class="form-control" id="efirst_name" placeholder="Enter your first name" name="first">
+                        </div>
+                        <div class="form-group">
+                            <label for="elast_name">Last Name:</label>
+                            <input type="text" class="form-control" id="elast_name" placeholder="Enter your last name" name="last">
+                        </div>
+                        <div class="form-group">
+                            <label for="enewphone">Phone:</label>
+                            <input type="text" class="form-control" id="enewphone" placeholder="Enter phone number" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="enewnationality">Nationality:</label>
+                            <input type="text" class="form-control" id="enewnationality" placeholder="Enter nationality" name="nationality">
+                        </div>
+                        <div class="form-group">
+                            <label for="enewlocation">Location:</label>
+                            <input type="text" class="form-control" id="enewlocation" placeholder="Enter location" name="location">
+                        </div>
+                        <div class="form-group">
+                            <label for="enewdob">DOB:</label>
+                            <input type="text" class="form-control" id="enewdob" placeholder="Enter DOB" name="dob">
+                        </div>
+                        <div class="form-group">
+                            <label for="enewemail">Email:</label>
+                            <input type="email" class="form-control" id="enewemail" placeholder="Enter new email" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="enewuser">Username:</label>
+                            <input type="text" class="form-control" id="enewuser" placeholder="New Username" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="enewpwd">Password:</label>
+                            <input type="password" class="form-control" id="enewpwd" placeholder="New password" name="password">
+                        </div>
+                    
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="edit-user" class="btn btn-default">Edit User</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script>
         //table.row( '#myRowId' ).data( myUpdateObjectOrArray );
@@ -227,7 +284,7 @@
                 "columnDefs": [ {
                     "targets": -1,
                     "data": null,
-                    "defaultContent": "<button class=\"fa fa-pencil-square-o edit_user\" aria-hidden=\"true\" data-id=\"' + data[i]['_id'] + '\"></button> <button class=\"fa fa-trash delete_user\" aria-hidden=\"true\" data-id=\"' + data[i]['_id'] + '\"></button>"
+                    "defaultContent": "<button class=\"fa fa-pencil-square-o edit_user\" data-toggle=\"modal\" data-target=\".edit-user-form\" aria-hidden=\"true\" data-id=\"' + data[i]['_id'] + '\"></button> <button class=\"fa fa-trash delete_user\" aria-hidden=\"true\" data-id=\"' + data[i]['_id'] + '\"></button>"
                 } ]
             });
             $('#example tbody').on( 'click', 'button', function () {

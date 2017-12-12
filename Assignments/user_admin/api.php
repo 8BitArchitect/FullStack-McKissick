@@ -220,21 +220,13 @@ class MyAPI extends API
      */
     protected function update_user()
     {
-        $this->mh->setDbcoll('users');
-        if (is_array($this->request['data'])) {
-            $this->request = $this->request['data'];
-            $this->request['_id'] = (int)$this->request['_id'];
-            //had issues with "posting" so I'm debugging here
-            if (!$this->has_string_keys($this->request)) {
-                $this->logger->do_log(sizeof($this->request), "regular array");
-                $this->request = $this->addPrimaryKey($this->request, $this->primary_key);
-                $result = $this->mh->insert($this->request);
-            } else {
-                $this->logger->do_log(sizeof($this->request), "assoc array");
-                $result = $this->mh->insert([$this->request]);
-            }
-        }
-        return $result;
+        $this->request['_id'] = (int)$this->request['_id'];
+        $_id = (int)$this->request['_id'];
+        
+        $doc['_id'] = $_id;
+        $results = $this->mh->update($doc, $this->request, null);
+        
+        return $results; 
     }
 
     /**
